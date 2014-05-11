@@ -1,0 +1,8 @@
+{
+	"devDependencies" : {
+		"express" : "3.*",
+		"jade" : "*",
+		"request" : "*"
+	}
+
+}
