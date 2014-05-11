@@ -15,7 +15,7 @@ app.configure(function (){
 var key = cumtdkey['key'];
 
 app.get('/', function (req, res){
-	request('https://developer.cumtd.com/api/v2.2/json/GetStopTimesByStop?key='+ key + '&stop_id=ISR', function (error, response, body) {
+	request('http://developer.cumtd.com/api/v2.2/json/GetStopTimesByStop?key='+ key + '&stop_id=ISR', function (error, response, body) {
 			var ret = [];
 			var j = JSON.parse(body);
 			var times = j['stop_times'];

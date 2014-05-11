@@ -2,7 +2,7 @@
 	"devDependencies" : {
 		"express" : "3.*",
 		"jade" : "*",
-		"request" : "*"
+		"request" : "2.33"
 	}
 
 }
