@@ -1,8 +1,10 @@
-p North
+p 22N
+div Departs:
 for time in north 
-	Departure Time: #{time}
-	br 
-p South
-for time in south
-	Departure Time: #{time}
 	br
+	| #{time}
+p 22S 
+div Departs:
+for time in south
+	br
+	| #{time}
