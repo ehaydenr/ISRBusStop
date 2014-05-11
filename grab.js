@@ -16,13 +16,18 @@ var key = cumtdkey['key'];
 
 app.get('/', function (req, res){
 	request('http://developer.cumtd.com/api/v2.2/json/GetStopTimesByStop?key='+ key + '&stop_id=ISR', function (error, response, body) {
-			var ret = [];
+			var north = [];
+			var south = [];
 			var j = JSON.parse(body);
 			var times = j['stop_times'];
-			for( var i = 0; i<times.length && i <= 4; i+=2){
-				ret.push(times[i].departure_time);
+			for( var i = 0; i<times.length; i+=2){
+				if(north.length <= 4 && times[i].stop_id == "ISR:2")
+					north.push(times[i].departure_time);
+				else if(south.length <= 4 && times[i].stop_id == "ISR:1")
+					south.push(times[i].departure_time);
+				else continue;
 			}
-			res.render('index', {ret:ret});
+			res.render('index', {north:north, south:south});
 		});	
 });
 
