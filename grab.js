@@ -15,6 +15,7 @@ app.configure(function (){
 var key = cumtdkey['key'];
 
 app.get('/', function (req, res){
+		console.log("GET /");
 	request('http://developer.cumtd.com/api/v2.2/json/GetStopTimesByStop?key='+ key + '&stop_id=ISR', function (error, response, body) {
 			var date = new Date();
 			var current_hour = date.getHours();
