@@ -23,7 +23,8 @@ app.get('/', function (req, res){
 			var south = [];
 			var j = JSON.parse(body);
 			var times = j['stop_times'];
-			for( var i = 0; i<times.length; i+=2){
+			for( var i = 0; i<times.length; i++){
+				if(times[i].trip.block_id.indexOf('M') == -1) continue;
 				var hour = parseInt(times[i].departure_time.substring(0,2));
 				var minute = parseInt(times[i].departure_time.substring(3,5));
 				if(hour < current_hour) 
