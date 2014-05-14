@@ -23,6 +23,7 @@ app.get('/', function (req, res){
 			var south = [];
 			var j = JSON.parse(body);
 			var times = j['stop_times'];
+			var wednesday = date.getDay() == 3;
 			for( var i = 0; i<times.length; i++){
 				if(times[i].trip.block_id.indexOf('M') == -1) continue;
 				var hour = parseInt(times[i].departure_time.substring(0,2));
@@ -41,7 +42,7 @@ app.get('/', function (req, res){
 					south.push(t);
 				else continue;
 			}
-			res.render('index', {north:north, south:south});
+			res.render('index', {wednesday:wednesday, north:north, south:south});
 		});	
 });
 
